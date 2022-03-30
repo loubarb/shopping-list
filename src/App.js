@@ -11,11 +11,13 @@ const App = () => {
 		{ itemName: 'item 3', quantity: 2, isSelected: false},
 	]);
 
+	const [inputValue, setInputValue] = useState('');
+
 	return (
 		<div className='app-background'>
 			<div className='main-container'>
 				<div className='add-item-box'>
-					<input className='add-item-input' placeholder='Add an item...' />
+					<input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='add-item-input' placeholder='Add an item...' />
 					<FontAwesomeIcon icon={faPlus} />
 				</div>
 				<div className='item-list'>
