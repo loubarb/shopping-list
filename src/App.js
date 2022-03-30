@@ -29,6 +29,14 @@ const App = () => {
 		setInputValue('');
 	}
 
+	const toggleComplete = (index) => {
+		const newItems = [...items];
+
+		newItems[index].isSelected = !newItems[index].isSelected;
+
+		setItems(newItems);
+	}
+
 	return (
 		<div className='app-background'>
 			<div className='main-container'>
@@ -40,7 +48,7 @@ const App = () => {
 					{/* map function loops over items in items array & displays JSX for each item */}
 					{items.map((item, index) => (
 						<div className='item-container'>
-							<div className='item-name'>	
+							<div className='item-name' onClick={() => toggleComplete(index)} >	
 							{/* ternary operator to check for isSleceted. if true, display tick with strikethrough; if not, display empty circle */}							
 								{item.isSelected ? (
 									<>
