@@ -13,12 +13,28 @@ const App = () => {
 
 	const [inputValue, setInputValue] = useState('');
 
+	const handleAddButtonClick = () => {
+	{/* creates new object of what user puts in and gets pushed to array */}
+		const newItem = {
+			itemName: inputValue,
+			quantity: 1,
+			isSelected: false,
+		};
+	
+	{/* copies existing array and adds the new item to th end */}
+		const newItems = [...items, newItem];
+
+	{/* pushes new array back into state then clears input box */}
+		setItems(newItems);
+		setInputValue('');
+	}
+
 	return (
 		<div className='app-background'>
 			<div className='main-container'>
 				<div className='add-item-box'>
 					<input value={inputValue} onChange={(e) => setInputValue(e.target.value)} className='add-item-input' placeholder='Add an item...' />
-					<FontAwesomeIcon icon={faPlus} />
+					<FontAwesomeIcon icon={faPlus} onClick={() => handleAddButtonClick()} />
 				</div>
 				<div className='item-list'>
 					{/* map function loops over items in items array & displays JSX for each item */}
