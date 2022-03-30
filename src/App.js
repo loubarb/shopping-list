@@ -6,14 +6,12 @@ import { faChevronRight, faChevronLeft, faCircle, faCheckCircle, faPlus } from '
 const App = () => {
 
 	const [items, setItems] = useState([
-		{ itemName: 'item 1', quantity: 1, isSelected: false},
-		{ itemName: 'item 2', quantity: 3, isSelected: true},
-		{ itemName: 'item 3', quantity: 2, isSelected: false},
+		{ itemName: 'milk', quantity: 1, isSelected: false },
 	]);
 
 	const [inputValue, setInputValue] = useState('');
 
-	const [totalItemCount, setTotalItemCount] = useState(6);
+	const [totalItemCount, setTotalItemCount] = useState('1');
 
 	const handleAddButtonClick = () => {
 	{/* creates new object of what user puts in and gets pushed to array */}
@@ -34,26 +32,20 @@ const App = () => {
 
 	const toggleComplete = (index) => {
 		const newItems = [...items];
-
 		newItems[index].isSelected = !newItems[index].isSelected;
-
 		setItems(newItems);
 	}
 
 	const handleQuantityIncrease = (index) => {
 		const newItems = [...items];
-
 		newItems[index].quantity++;
-
 		setItems(newItems);
 		calculateTotal();
 	}
 
 	const handleQuantityDecrease = (index) => {
 		const newItems = [...items];
-
 		newItems[index].quantity--;
-
 		setItems(newItems);
 		calculateTotal();
 	}
